@@ -11,7 +11,8 @@ class CountryController extends Controller
     public function index(){
         $data = DB::select('SELECT * FROM countries');
         // dump($data);
-        return view('countrylist',['data'=>$data]);
+        return view('countrylist', 
+        compact('data'));
     }
 
     public function create(){
