@@ -18,4 +18,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/country', [CountryController::class, 'index']);
+
+Route::controller(CountryController::class)
+    ->prefix('country')
+    ->as('country/')
+    ->group(function () {
+        Route::get('', 'index')->name('index');
+        Route::post('/remove/{id}', 'delete');
+        // Route::get('/bills', 'bills')->name('bills');
+        // Route::get('/bills/{bill}/invoice/pdf', 'invoice')->name('pdf.invoice');
+    });
+
+// Route::get('country', [CountryController::class,'index']);

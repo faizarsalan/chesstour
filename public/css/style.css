@@ -1,0 +1,242 @@
+:root{
+  font-family: Arial, Helvetica, sans-serif;
+  --blue : #0d6efd;
+  --gray : #99AAB5;
+  --dark : #2C2F33;
+  --blacknav : #23272A;
+  --mist : #2C3845;
+  --royalty : #2980b9;
+  --softred : #e13b3b;
+  --softgreen : #4CAF50;
+}
+
+body {
+    padding: 0;  
+    margin: auto;
+    background-color: var(--dark);
+}
+
+.title {
+  color: white;
+  text-align: center;
+}
+
+.act-btn{
+  background:#f59e0b;
+  display: block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  text-decoration: none;
+  transition: ease all 0.3s;
+  position: fixed;
+  right: 30px;
+  bottom:30px;
+  }
+  .act-btn:hover{background: var(--softgreen);}
+    
+    a {
+        text-decoration: none;
+    }
+  
+    .action {
+        display: flex;
+    }
+
+#tablestyle {
+    color: white;
+    border-collapse: collapse;
+    width: 72%;
+    margin: auto;
+    overflow: hidden;
+    margin-top: 1em;
+  }
+
+#tablestyle td{
+    border: 0px solid #ddd;
+    padding: 8px;
+  }
+
+#tablestyle th {
+  text-align: center;
+  border: 0px solid #ddd;
+  padding: 8px;
+}
+  
+#tablestyle tr{
+  background-color: var(--mist);
+  margin: 2px 2px 2px 2px;
+}
+  
+#tablestyle tr:hover {background-color: var(--blacknav);}
+  
+#tablestyle th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: var(--blue);
+    color: white;
+  }
+
+#tablestyle a {
+  text-decoration: none;
+  color: white;
+}
+
+#tablestyle button {
+  background-color: var(--royalty); /* Green */
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+#tablestyle a {
+  padding: 8px 12px;
+
+}
+
+#tablestyle .agree:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+#tablestyle .remove:hover {
+  background-color: var(--softred);
+  color: white;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #23272A;
+}
+
+li {
+  float: right;
+}
+
+li a {
+  display: block;
+  text-align: center;
+  padding: 20px 20px;
+  text-decoration: none;
+}
+
+li a {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  background: linear-gradient(to right, white, white 50%, gray 50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 275ms ease;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-position: 0 100%;
+}
+
+.modal-window {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.432);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s;
+}
+.modal-window:target {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .modal-window .outside {
+    width: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1em;
+    background: var(--themepink);
+  }
+  .inside {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1vw;
+  }
+
+  .inside input {
+      margin-left: 8vw;
+  }
+
+  .modal-window header {
+    font-weight: bold;
+  }
+  .modal-window h1 {
+    font-size: 150%;
+    margin: 0 0 15px;
+  }
+
+.modal-close {
+  color: black;
+  line-height: 50px;
+  font-size: 80%;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 70px;
+  text-decoration: none;
+  padding-left: 0.2cm;
+  padding-top: 0.15cm;
+}
+  .modal-close:hover {
+    color: black;
+  }
+
+
+.modal-window div {
+  border-radius: 1rem;
+}
+
+.modal-window div:not(:last-of-type) {
+  margin-bottom: 15px;
+}
+
+.modal-window small {
+  color: lightgray;
+}
+
+.modal-window .btn {
+  background-color: white;
+  padding: 1em 1.5em;
+  border-radius: 1rem;
+  text-decoration: none;
+}
+  .modal-window i {
+    padding-right: 0.3em;
+  }

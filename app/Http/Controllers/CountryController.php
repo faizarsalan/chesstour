@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\DB;
 class CountryController extends Controller
 {
     public function index(){
-        $data = DB::select('SELECT * FROM countries');
-        // dump($data);
-        return view('countrylist', 
-        compact('data'));
+        $country = new Country();
+        $data = $country->queryall();
+        // dd($data);
+        return view('countrylist',['data'=>$data]);
     }
 
     public function create(){
@@ -36,8 +36,9 @@ class CountryController extends Controller
     }
 
     public function delete(Request $request){
-        DB::delete('DELETE countries where id = :id', ['id' => $request->id]);
-        // redirect to index
+        $country = new Country();
+        $delete = $country->querydelete($request->id);
+        return redirect()->back();
     }
 
 
