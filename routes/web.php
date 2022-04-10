@@ -25,7 +25,8 @@ Route::controller(CountryController::class)
     ->group(function () {
         Route::get('', 'index')->name('index');
         Route::post('/remove/{id}', 'delete');
-        // Route::get('/bills', 'bills')->name('bills');
+        Route::post('/update/{id}', 'update');
+        Route::post('/insert', 'insert');
         // Route::get('/bills/{bill}/invoice/pdf', 'invoice')->name('pdf.invoice');
     });
 

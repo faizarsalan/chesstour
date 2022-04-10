@@ -28,15 +28,16 @@
                 </td>
                 <div id="open-update{{ $i }}" class="modal-window">
                   <div class="outside">
-                      <div class="inside" style="background-color: white;">
+                      <div class="inside">
                           <a href="#" title="Close" class="modal-close" style="margin-bottom: 5vh">X</a>
                           <h1>Edit the Country!</h1>
-                          <form action="/update/{{$country->id_Country}}" method="post">
+                          <form action="/country/update/{{$country->id_Country}}" method="post">
                             @csrf
                             <label for="name">Name</label>
                             <input type="text" name="name" id="" value="{{$country->name}}">
                             <label for="capital">Capital City</label>
                             <input type="text" name="capital" id="" value="{{$country->capital}}">
+                            <input type="hidden" name="id" value="{{ $country->id_Country }}">
 
                             <button type="submit"
                             style="width: 5.5vw;background-color:#28A745;height:2vw;border-radius:1vw;border:none;color:white">Save</button>
@@ -52,16 +53,23 @@
 
       <a href="#open-modal" class="act-btn">
         +
-        </a>      
-        <div id="open-modal" class="modal-window">
-            <div class="outside">
-                <div class="inside" style="background-color: white;">
-                    <a href="#" title="Close" class="modal-close" style="margin-bottom: 5vh">X</a>
-                    <h1>Upload Your File!</h1>
-                    <small>Files should be in PDF</small>
-                    <div><img src="/storage/uploadicon.png" alt="" height="200px" width="200px"></div>
-                    <form action="/upload" method="POST" enctype="multipart/form-data"> @csrf<input type="file" accept="application/pdf" onchange="form.submit()" required name="file"></form>
-                </div>
+      </a>
+      
+      <div id="open-modal" class="modal-window">
+        <div class="outside">
+            <div class="inside"">
+                <a href="#" title="Close" class="modal-close" style="margin-bottom: 5vh">X</a>
+                <h1>Create a Country!</h1>
+                <form action="/country/insert/" method="post">
+                  @csrf
+                  <label for="name">Name:</label>
+                  <input type="text" name="name" id="">
+                  <label for="capital">Capital City:</label>
+                  <input type="text" name="capital" id="">
+                  <button type="submit"
+                  style="width: 5.5vw;background-color:#28A745;height:2vw;border-radius:1vw;border:none;color:white">Save</button>
+              </form>
             </div>
         </div>
+    </div>      
 @endsection

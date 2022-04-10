@@ -11,28 +11,19 @@ class CountryController extends Controller
     public function index(){
         $country = new Country();
         $data = $country->queryall();
-        // dd($data);
         return view('countrylist',['data'=>$data]);
     }
 
-    public function create(){
-        //returns the insert form
-    }
-
     public function insert(Request $request){
-        // $data = new Country();
-        DB::insert('INSERT into countries (name) values (:name)', ['name' => $request->name]);
-        //redirect to index
-    }
-
-    public function edit()
-    {
-        //returns the update form
+        $country = new Country();
+        $country->queryinsert($request->name,$request->capital);
+        return redirect()->back();
     }
 
     public function update(Request $request){
-        DB::update('UPDATE countries set name = :name where name = :id', ['name' => $request->name, 'id' => $request->id]);
-        //redirect to index
+        $country = new Country();
+        $country->queryupdate($request->name,$request->capital,$request->id);
+        return redirect()->back();
     }
 
     public function delete(Request $request){
@@ -40,6 +31,4 @@ class CountryController extends Controller
         $delete = $country->querydelete($request->id);
         return redirect()->back();
     }
-
-
 }

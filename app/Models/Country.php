@@ -21,7 +21,12 @@ class Country extends Model
     public function queryinsert($countryname,$capitalname){
         DB::insert('INSERT into countries (name,capital) values (:countryname,:capitalname)', ['countryname' => $countryname, 
                                                                                                'capitalname' => $capitalname]);
-        
+    }
+
+    public function queryupdate($countryname,$capitalname,$id){
+        DB::update('UPDATE countries SET name = :countryname, capital = :capitalname where id_Country = :id', ['countryname' => $countryname, 
+                                                                                                               'capitalname' => $capitalname,
+                                                                                                               'id' => $id]);
     }
 
     public function querydelete($id){
