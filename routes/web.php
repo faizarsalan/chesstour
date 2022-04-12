@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\PlayerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,7 +28,16 @@ Route::controller(CountryController::class)
         Route::post('/remove/{id}', 'delete');
         Route::post('/update/{id}', 'update');
         Route::post('/insert', 'insert');
-        // Route::get('/bills/{bill}/invoice/pdf', 'invoice')->name('pdf.invoice');
+    });
+
+    Route::controller(PlayerController::class)
+    ->prefix('player')
+    ->as('player/')
+    ->group(function () {
+        Route::get('', 'index')->name('index');
+        Route::post('/remove/{id}', 'delete');
+        Route::post('/update/{id}', 'update');
+        Route::post('/insert', 'insert');
     });
 
 // Route::get('country', [CountryController::class,'index']);
