@@ -199,7 +199,7 @@ li a:hover {
 
 }
 
-.inside input {
+.inside input, .inside select {
     margin-bottom: 1vw;
 }
 
@@ -252,9 +252,59 @@ li a:hover {
     cursor: pointer;
 }
 
-form{
+
+
+
+.multi-insert {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#items {
+    margin-bottom: 2vh;
+}
+
+.submit-btn {
+    width: 5.5vw;
+    background-color:#28A745;
+    height:2vw;
+    border-radius:1vw;
+    border:none;
+    color:white
+}
+
+#items a {
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+#items input[type="text"]{
+    padding: 10px;
+    margin: 10px auto;
+    display: block;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    background: none;
+    width: 274px;
+    color: white;
+  }
+
+#row {
+    margin-bottom: 1vw;
+}
+
+#row strong {
+    margin-top: 5vw;
+}
+
+.multi-insert form{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }

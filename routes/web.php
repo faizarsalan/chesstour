@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +34,16 @@ Route::controller(CountryController::class)
     Route::controller(PlayerController::class)
     ->prefix('player')
     ->as('player/')
+    ->group(function () {
+        Route::get('', 'index')->name('index');
+        Route::post('/remove/{id}', 'delete');
+        Route::post('/update/{id}', 'update');
+        Route::post('/insert', 'insert');
+    });
+
+    Route::controller(CategoryController::class)
+    ->prefix('category')
+    ->as('category/')
     ->group(function () {
         Route::get('', 'index')->name('index');
         Route::post('/remove/{id}', 'delete');

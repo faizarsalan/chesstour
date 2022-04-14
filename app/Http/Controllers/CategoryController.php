@@ -2,35 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Player;
-use App\Models\Country;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class PlayerController extends Controller
+
+class CategoryController extends Controller
 {
     public function index(){
-        $model = new Player();
-        $country = new Country();
+        $model = new Category();
         $data = $model->queryall();
-        $countrydata = $country->queryall();
-        return view('playerlist',['data'=>$data, 'country' => $countrydata]);
+        return view('categorylist',['data'=>$data]);
     }
 
     public function insert(Request $request){
-        $model = new Player();
+        $model = new Category();
         $model->queryinsert($request->name,$request->capital);
         return redirect()->back();
     }
 
     public function update(Request $request){
-        $model = new Player();
+        $model = new Category();
         $model->queryupdate($request);
         return redirect()->back();
     }
 
     public function delete(Request $request){
-        $model = new Player();
+        $model = new Category();
         $delete = $model->querydelete($request->id);
         return redirect()->back();
     }

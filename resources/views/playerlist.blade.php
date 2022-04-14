@@ -1,6 +1,6 @@
 @extends('template.main')
 @section('content')
-  <h1 class="title">Countries</h1>
+  <h1 class="title">Players</h1>
         <table id="tablestyle">
           <thead>
             <tr>
@@ -43,11 +43,28 @@
                           <h1>Edit the Player!</h1>
                           <form action="/player/update/{{$model->id_player}}" method="post">
                             @csrf
-                            <label for="name">Name</label>
-                            <input type="text" name="name" id="" value="{{$model->firstname}}">
-                            <label for="capital">Capital City</label>
-                            <input type="text" name="capital" id="" value="{{$model->surname}}">
-                            <input type="hidden" name="id" value="{{ $model->id_player }}">
+                            <label for="firstname">First Name</label>
+                            <input required type="text" name="firstname" id="" value="{{$model->firstname}}">
+                            <label for="surname">Surname</label>
+                            <input required type="text" name="surname" id="" value="{{$model->surname}}">
+                            <label for="elo">ELO Rating</label>
+                            <input required type="text" name="elo" id="" value="{{$model->elo}}">
+                            <label for="title">Title</label>
+                            <input required type="text" name="title" id="" value="{{$model->title}}">
+                            <label for="dateofbirth">Date of Birth</label>
+                            <input required type="date" name="dateofbirth" id="" value="{{$model->dateofbirth}}">
+                            <label for="gender">Gender</label>
+                            <select name="gender" id="">
+                                <option value="M" {{ ( $model->gender == 'M') ? 'selected' : '' }}>Male</option>
+                                <option value="F" {{ ( $model->gender == 'F') ? 'selected' : '' }}>Female</option>
+                            </select>
+                            <label for="country">Country</label>
+                            <select name="country" id="">
+                                @foreach ($country as $item)
+                                    <option value="{{ $item->id_Country }}" {{ ( $model->name == $item->name) ? 'selected' : '' }}> {{ $item->name }} </option>
+                                @endforeach
+                            </select>
+                            <input required type="hidden" name="id" value="{{ $model->id_player }}">
 
                             <button type="submit"
                             style="width: 5.5vw;background-color:#28A745;height:2vw;border-radius:1vw;border:none;color:white">Save</button>
@@ -59,27 +76,45 @@
             @endforeach
           </tbody>
       </table>
-      
+
 
       <a href="#open-modal" class="act-btn">
         +
       </a>
-      
+
       <div id="open-modal" class="modal-window">
         <div class="outside">
             <div class="inside"">
                 <a href="#" title="Close" class="modal-close" style="margin-bottom: 5vh">X</a>
                 <h1>Create a Country!</h1>
-                <form action="/country/insert/" method="post">
-                  @csrf
-                  <label for="name">Name:</label>
-                  <input type="text" name="name" id="">
-                  <label for="capital">Capital City:</label>
-                  <input type="text" name="capital" id="">
-                  <button type="submit"
-                  style="width: 5.5vw;background-color:#28A745;height:2vw;border-radius:1vw;border:none;color:white">Save</button>
-              </form>
+                <form action="/player/insert/" method="post">
+                    @csrf
+                    <label for="firstname">First Name</label>
+                    <input type="text" name="firstname" id="">
+                    <label for="surname">Surname</label>
+                    <input type="text" name="surname" id="">
+                    <label for="elo">ELO Rating</label>
+                    <input type="text" name="elo" id="">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="">
+                    <label for="dateofbirth">Date of Birth</label>
+                    <input type="date" name="dateofbirth" id="">
+                    <label for="gender">Gender</label>
+                    <select name="gender" id="">
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                    </select>
+                    <label for="country">Country</label>
+                    <select name="country" id="">
+                        @foreach ($country as $item)
+                            <option value="{{ $item->id_Country }}"> {{ $item->name }} </option>
+                        @endforeach
+                    </select>
+
+                    <button type="submit"
+                    style="width: 5.5vw;background-color:#28A745;height:2vw;border-radius:1vw;border:none;color:white">Save</button>
+                </form>
             </div>
         </div>
-    </div>      
+    </div>
 @endsection

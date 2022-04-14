@@ -1,25 +1,23 @@
 @extends('template.main')
 @section('content')
-  <h1 class="title">Countries</h1>
+  <h1 class="title">Categories</h1>
         <table id="tablestyle">
           <thead>
             <tr>
               <th scope="col">ID</th>
               <th scope="col">Name</th>
-              <th scope="col">Capital</th>
               <th scope="col">Actions</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            @foreach($data as $i => $country)
+            @foreach($data as $i => $model)
               <tr>
-                <td>{{ $country->id_Country }}</td>
-                <td>{{ $country->name }}</td>
-                <td>{{ $country->capital}}</td>
+                <td>{{ $model->id_Category }}</td>
+                <td>{{ $model->name }}</td>
                 <td><button class="agree"><a href="#open-update{{ $i }}">edit</a></button></td>
                 <td>
-                  <form action="/country/remove/{{ $country->id_Country }}" method="POST">
+                  <form action="/category/remove/{{ $model->id_Category }}" method="POST">
                   @csrf
                     <div>
                       <button class="remove" type="submit">remove</button>
@@ -30,14 +28,12 @@
                   <div class="outside">
                       <div class="inside">
                           <a href="#" title="Close" class="modal-close" style="margin-bottom: 5vh">X</a>
-                          <h1>Edit the Country!</h1>
-                          <form action="/country/update/{{$country->id_Country}}" method="post">
+                          <h1>Edit the Category!</h1>
+                          <form action="/country/update/{{$model->id_Category}}" method="post">
                             @csrf
                             <label for="name">Name</label>
-                            <input type="text" name="name" id="" value="{{$country->name}}">
-                            <label for="capital">Capital City</label>
-                            <input type="text" name="capital" id="" value="{{$country->capital}}">
-                            <input type="hidden" name="id" value="{{ $country->id_Country }}">
+                            <input type="text" name="name" id="" value="{{$model->name}}">
+                            <input type="hidden" name="id" value="{{ $model->id_Category }}">
 
                             <button type="submit"
                             style="width: 5.5vw;background-color:#28A745;height:2vw;border-radius:1vw;border:none;color:white">Save</button>
@@ -59,15 +55,14 @@
         <div class="outside">
             <div class="multi-insert">
                 <a href="#" title="Close" class="modal-close" style="margin-bottom: 5vh">X</a>
-                <h1>Create a Country!</h1>
+                <h1>Create a Category!</h1>
                 <form action="/country/insert/" method="post">
                   @csrf
-                  <div class="items">
-                        <label for="name">Name:</label>
-                        <input type="text" name="name" id="" placeholder="Country Name" required>
+                  <div id="items">
+                        <div id="row">
+                        </div>
 
-                        <label for="capital">Capital City:</label>
-                        <input type="text" name="capital" id="" placeholder="Capital City Name" required>
+                        <a id="addRow">Add Row</a>
                   </div>
 
                   <div class="row">
