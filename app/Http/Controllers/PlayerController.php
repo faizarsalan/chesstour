@@ -17,21 +17,29 @@ class PlayerController extends Controller
         return view('playerlist',['data'=>$data, 'country' => $countrydata]);
     }
 
+    public function add(){
+        $country = new Country();
+        $countrydata = $country->queryall();
+        return view('playeradd',['data'=>$countrydata]);
+    }
+
     public function insert(Request $request){
-        $model = new Player();
-        $model->queryinsert($request->name,$request->capital);
-        return redirect()->back();
+        foreach ($request->player_Firstname as $key => $value) {
+            $model = new Player();
+            $model->queryinsert($request->player_Firstname[$key],$request->player_Surname[$key],$request->player_Elo[$key],$request->player_Title[$key],$request->player_DOB[$key],$request->player_Gender[$key],$request->country);
+        }
+        return redirect('/player');
     }
 
     public function update(Request $request){
         $model = new Player();
         $model->queryupdate($request);
-        return redirect()->back();
+        return redirect('/player');
     }
 
     public function delete(Request $request){
         $model = new Player();
         $delete = $model->querydelete($request->id);
-        return redirect()->back();
+        return redirect('/player');
     }
 }

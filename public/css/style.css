@@ -21,6 +21,55 @@ body {
     text-align: center;
 }
 
+.topper {
+    background-color: var(--royalty);
+    color: white;
+    text-align: center;
+    font-size: 5vh;
+    padding: 5vh 5vh 5vh 5vh;
+}
+
+.bottom {
+    background-color: var(--royalty);
+    color: white;
+    text-align: center;
+    font-size: 1em;
+    padding: 2vh 2vh 2vh 2vh;
+    margin-top: 1vh;
+}
+
+.homedisplay {
+    padding: 10vh 10vh 10vh 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.homedisplay a {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    background: linear-gradient(to right, white, white 50%, gray 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position 275ms ease;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.homedisplay a:hover {
+    background-position: 0 100%;
+}
+
+
+.subdisplay p {
+    color: white;
+    font-size: 14px;
+}
+
 .act-btn {
     background: #f59e0b;
     display: block;
@@ -264,9 +313,6 @@ li a:hover {
     align-items: center;
 }
 
-#items {
-    margin-bottom: 2vh;
-}
 
 .submit-btn {
     width: 5.5vw;
@@ -277,13 +323,19 @@ li a:hover {
     color:white
 }
 
+#items {
+    margin-bottom: 2vh;
+}
+
 #items a {
     cursor: pointer;
     text-decoration: none;
-    color: white;
+    color: red;
 }
 
-#items input[type="text"]{
+#items input[type="text"],
+#items input[type="date"],
+#items select{
     padding: 10px;
     margin: 10px auto;
     display: block;
@@ -294,17 +346,42 @@ li a:hover {
     color: white;
   }
 
+#items option{
+    color: black;
+}
+
+#items {
+    color: white;
+    text-align: center;
+}
+
+#addRow, #submitRow {
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    background-color: #4299e1;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    line-height: 26px;
+    margin: 2vh 2vh 2vh 2vh;
+}
+
+
+.addbtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #row {
-    margin-bottom: 1vw;
+    margin-bottom: 5vh;
+    padding: 2vw;
 }
 
 #row strong {
-    margin-top: 5vw;
+    color: white;
 }
 
-.multi-insert form{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}

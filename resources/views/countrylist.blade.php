@@ -51,30 +51,7 @@
       </table>
 
 
-      <a href="#open-modal" class="act-btn">
+      <a href="/country/add" class="act-btn">
         +
       </a>
-
-      <div id="open-modal" class="modal-window">
-        <div class="outside">
-            <div class="multi-insert">
-                <a href="#" title="Close" class="modal-close" style="margin-bottom: 5vh">X</a>
-                <h1>Create a Country!</h1>
-                <form action="/country/insert/" method="post">
-                  @csrf
-                  <div class="items">
-                        <label for="name">Name:</label>
-                        <input type="text" name="name" id="" placeholder="Country Name" required>
-
-                        <label for="capital">Capital City:</label>
-                        <input type="text" name="capital" id="" placeholder="Capital City Name" required>
-                  </div>
-
-                  <div class="row">
-                    <button class="submit-btn "type="submit">Save</button>
-                  </div>
-              </form>
-            </div>
-        </div>
-    </div>
 @endsection

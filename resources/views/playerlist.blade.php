@@ -78,43 +78,7 @@
       </table>
 
 
-      <a href="#open-modal" class="act-btn">
+      <a href="/player/add" class="act-btn">
         +
       </a>
-
-      <div id="open-modal" class="modal-window">
-        <div class="outside">
-            <div class="inside"">
-                <a href="#" title="Close" class="modal-close" style="margin-bottom: 5vh">X</a>
-                <h1>Create a Country!</h1>
-                <form action="/player/insert/" method="post">
-                    @csrf
-                    <label for="firstname">First Name</label>
-                    <input type="text" name="firstname" id="">
-                    <label for="surname">Surname</label>
-                    <input type="text" name="surname" id="">
-                    <label for="elo">ELO Rating</label>
-                    <input type="text" name="elo" id="">
-                    <label for="title">Title</label>
-                    <input type="text" name="title" id="">
-                    <label for="dateofbirth">Date of Birth</label>
-                    <input type="date" name="dateofbirth" id="">
-                    <label for="gender">Gender</label>
-                    <select name="gender" id="">
-                        <option value="M">Male</option>
-                        <option value="F">Female</option>
-                    </select>
-                    <label for="country">Country</label>
-                    <select name="country" id="">
-                        @foreach ($country as $item)
-                            <option value="{{ $item->id_Country }}"> {{ $item->name }} </option>
-                        @endforeach
-                    </select>
-
-                    <button type="submit"
-                    style="width: 5.5vw;background-color:#28A745;height:2vw;border-radius:1vw;border:none;color:white">Save</button>
-                </form>
-            </div>
-        </div>
-    </div>
 @endsection

@@ -3,6 +3,8 @@
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\TourneyController;
+use App\Http\Controllers\TimeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 
@@ -27,6 +29,7 @@ Route::controller(CountryController::class)
     ->group(function () {
         Route::get('', 'index')->name('index');
         Route::post('/remove/{id}', 'delete');
+        Route::get('/add', 'add');
         Route::post('/update/{id}', 'update');
         Route::post('/insert', 'insert');
     });
@@ -37,6 +40,7 @@ Route::controller(CountryController::class)
     ->group(function () {
         Route::get('', 'index')->name('index');
         Route::post('/remove/{id}', 'delete');
+        Route::get('/add', 'add');
         Route::post('/update/{id}', 'update');
         Route::post('/insert', 'insert');
     });
@@ -46,9 +50,31 @@ Route::controller(CountryController::class)
     ->as('category/')
     ->group(function () {
         Route::get('', 'index')->name('index');
+        Route::get('/add', 'add');
         Route::post('/remove/{id}', 'delete');
         Route::post('/update/{id}', 'update');
         Route::post('/insert', 'insert');
     });
 
+    Route::controller(TourneyController::class)
+    ->prefix('tourney')
+    ->as('tourney/')
+    ->group(function () {
+        Route::get('', 'index')->name('index');
+        Route::get('/add', 'add');
+        Route::post('/remove/{id}', 'delete');
+        Route::post('/update/{id}', 'update');
+        Route::post('/insert', 'insert');
+    });
+
+    Route::controller(TimeController::class)
+    ->prefix('time')
+    ->as('time/')
+    ->group(function () {
+        Route::get('', 'index')->name('index');
+        Route::get('/add', 'add');
+        Route::post('/remove/{id}', 'delete');
+        Route::post('/update/{id}', 'update');
+        Route::post('/insert', 'insert');
+    });
 // Route::get('country', [CountryController::class,'index']);

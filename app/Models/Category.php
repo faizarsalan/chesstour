@@ -14,18 +14,15 @@ class Category extends Model
         return $data;
     }
 
-    public function queryinsert($countryname,$capitalname){
-        DB::insert('INSERT into categories (name,capital) values (:countryname,:capitalname)', ['countryname' => $countryname,
-                                                                                               'capitalname' => $capitalname]);
+    public function queryinsert($name){
+        DB::insert('INSERT into categories (name) values (:name)', ['name' => $name]);
     }
 
-    public function queryupdate($countryname,$capitalname,$id){
-        DB::update('UPDATE countries SET name = :countryname, capital = :capitalname where id_Country = :id', ['countryname' => $countryname,
-                                                                                                               'capitalname' => $capitalname,
-                                                                                                               'id' => $id]);
+    public function queryupdate($request){
+        DB::update('UPDATE categories SET name = :name where id_Category = :id', ['name' => $request->name, 'id' => $request->id]);
     }
 
     public function querydelete($id){
-        DB::delete('DELETE FROM countries where id_Country = :id', ['id' => $id]);
+        DB::delete('DELETE FROM categories where id_Category = :id', ['id' => $id]);
     }
 }

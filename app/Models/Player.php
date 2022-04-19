@@ -15,9 +15,15 @@ class Player extends Model
         return $data;
     }
 
-    public function queryinsert($countryname,$capitalname){
-        DB::insert('INSERT into players (firstname,surname,elo,title,dateofbirth,gender,fk_Countryid_Country) values (:countryname,:capitalname)', ['countryname' => $countryname,
-                                                                                               'capitalname' => $capitalname]);
+    public function queryinsert($firstname,$surname,$elo,$title,$dateofbirth,$gender,$country){
+        DB::insert('INSERT into players (firstname,surname,elo,title,dateofbirth,gender,fk_Countryid_Country) values (:firstname,:surname,:elo,:title,:dateofbirth,:gender,:country)',
+                                                                                                              ['firstname' => $firstname,
+                                                                                                               'surname' => $surname,
+                                                                                                               'elo' => $elo,
+                                                                                                               'title' => $title,
+                                                                                                               'dateofbirth' => $dateofbirth,
+                                                                                                               'gender' => $gender,
+                                                                                                               'country' => $country]);
     }
 
     public function queryupdate($request){

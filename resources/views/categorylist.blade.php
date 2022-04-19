@@ -29,7 +29,7 @@
                       <div class="inside">
                           <a href="#" title="Close" class="modal-close" style="margin-bottom: 5vh">X</a>
                           <h1>Edit the Category!</h1>
-                          <form action="/country/update/{{$model->id_Category}}" method="post">
+                          <form action="/category/update/{{$model->id_Category}}" method="post">
                             @csrf
                             <label for="name">Name</label>
                             <input type="text" name="name" id="" value="{{$model->name}}">
@@ -47,29 +47,7 @@
       </table>
 
 
-      <a href="#open-modal" class="act-btn">
+      <a href="/category/add" class="act-btn">
         +
       </a>
-
-      <div id="open-modal" class="modal-window">
-        <div class="outside">
-            <div class="multi-insert">
-                <a href="#" title="Close" class="modal-close" style="margin-bottom: 5vh">X</a>
-                <h1>Create a Category!</h1>
-                <form action="/country/insert/" method="post">
-                  @csrf
-                  <div id="items">
-                        <div id="row">
-                        </div>
-
-                        <a id="addRow">Add Row</a>
-                  </div>
-
-                  <div class="row">
-                    <button class="submit-btn "type="submit">Save</button>
-                  </div>
-              </form>
-            </div>
-        </div>
-    </div>
 @endsection

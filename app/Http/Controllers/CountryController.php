@@ -14,21 +14,27 @@ class CountryController extends Controller
         return view('countrylist',['data'=>$data]);
     }
 
+    public function add(){
+        return view('countryadd');
+    }
+
     public function insert(Request $request){
-        $model = new Country();
-        $model->queryinsert($request->name,$request->capital);
-        return redirect()->back();
+        foreach ($request->country_name as $key => $value) {
+            $model = new Country();
+            $model->queryinsert($request->country_name[$key],$request->country_capital[$key]);
+        }
+        return redirect('/country');
     }
 
     public function update(Request $request){
         $model = new Country();
         $model->queryupdate($request->name,$request->capital,$request->id);
-        return redirect()->back();
+        return redirect('/country');
     }
 
     public function delete(Request $request){
         $model = new Country();
         $delete = $model->querydelete($request->id);
-        return redirect()->back();
+        return redirect('/country');
     }
 }
