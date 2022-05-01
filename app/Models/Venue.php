@@ -14,7 +14,7 @@ class Venue extends Model
     ];
 
     public function queryall(){
-        $data = DB::select('SELECT * FROM venues');
+        $data = DB::select('SELECT v.name, v.id_Venue, c.name as countryname FROM venues AS v JOIN countries AS c ON v.fk_Countryid_Country = c.id_Country');
         return $data;
     }
 
@@ -36,6 +36,11 @@ class Venue extends Model
     public function showid($name){
         $id = DB::select('SELECT id_Venue FROM venues WHERE name = :name',['name' => $name]);
         return $id;
+    }
+
+    public function queryone($id){
+        $data = DB::select('SELECT * FROM venues WHERE id_Venue = :id',['id' => $id]);
+        return $data;
     }
 }
 

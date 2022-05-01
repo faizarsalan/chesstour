@@ -24,6 +24,8 @@ class PlayerController extends Controller
     }
 
     public function insert(Request $request){
+        $country = new Country();
+        $country->queryinsert($request->country_name,$request->country_capital);
         foreach ($request->player_Firstname as $key => $value) {
             $model = new Player();
             $model->queryinsert($request->player_Firstname[$key],$request->player_Surname[$key],$request->player_Elo[$key],$request->player_Title[$key],$request->player_DOB[$key],$request->player_Gender[$key],$request->country);

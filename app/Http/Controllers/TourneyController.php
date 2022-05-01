@@ -45,14 +45,27 @@ class TourneyController extends Controller
             $model = new Tourney();
             $model->queryinsert($request->tourney_name[$key],$request->tourney_prize[$key],$venuekey,$request->organizer[$key],$request->timecontrol[$key]);
         }
-        return redirect('/tourney');
+        return redirect('/venue');
     }
 
     public function update(Request $request){
-        $model = new Tourney();
-        $model->queryupdate($request);
-        return redirect('/tourney');
+        foreach ($request->tourneyname as $key => $value) {
+            $name = $request->tourneyname[$key];
+            $prize = $request->tourneyprize[$key];
+            $organizer = $request->organizer[$key];
+            $timecontrol = $request->timecontrol[$key];
+            $id = $request->id[$key];
+
+            // echo "This is organizer";
+            // echo $organizer;
+            // echo " This is time control ";
+            // echo $timecontrol;
+            $model = new Tourney();
+            $model->queryupdate($name,$prize,$organizer,$timecontrol,$id);
+        }
+        return redirect('/venue');
     }
+
 
     public function delete(Request $request){
         $model = new Tourney();

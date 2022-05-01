@@ -25,8 +25,8 @@
                 <p>Bullet, Chess, Rapid, or Chess960? Find your playstyle!</p>
             </div>
             <div class="subdisplay">
-                <a href="/tourney">Tournaments</a>
-                <p>A collection of tournaments!</p>
+                <a href="/venue">Venues</a>
+                <p>A collection of your favourite venues!</p>
             </div>
         </div>
     </div>

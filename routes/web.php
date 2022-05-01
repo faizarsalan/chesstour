@@ -5,6 +5,7 @@ use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TourneyController;
 use App\Http\Controllers\TimeController;
+use App\Http\Controllers\VenueController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -63,6 +64,18 @@ Route::controller(CountryController::class)
         Route::get('', 'index')->name('index');
         Route::get('/add', 'add');
         Route::post('/remove/{id}', 'delete');
+        Route::post('/update/', 'update');
+        Route::post('/insert', 'insert');
+    });
+
+    Route::controller(VenueController::class)
+    ->prefix('venue')
+    ->as('venue/')
+    ->group(function () {
+        Route::get('', 'index')->name('index');
+        Route::get('/add', 'add');
+        Route::post('/remove/{id}', 'delete');
+        Route::get('/edit/{id}', 'edit');
         Route::post('/update/{id}', 'update');
         Route::post('/insert', 'insert');
     });

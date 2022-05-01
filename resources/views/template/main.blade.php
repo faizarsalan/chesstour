@@ -14,7 +14,7 @@
     <ul>
         <li><a href="/time">Time Control</a></li>
         <li><a href="/category">Categories</a></li>
-        <li><a href="/tourney">Tournaments</a></li>
+        <li><a href="/venue">Venues</a></li>
         <li><a href="/player">Players</a></li>
         <li><a href="/country">Countries</a></li>
         <li><a href="/">Home</a></li>

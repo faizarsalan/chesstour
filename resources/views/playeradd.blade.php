@@ -8,11 +8,8 @@
     <div id="items">
         <div>
             <strong>Country of Origin</strong>
-            <select name='country'>
-                @foreach ($data as $item)
-                    <option value='{{ $item->id_Country }}'> {{ $item->name }} </option>
-                @endforeach
-            </select>
+            <input type="text" name="country_name" id="" placeholder="Country Name">
+            <input type="text" name="country_capital" id="" placeholder="Capital Name">
         </div>
 
     </div>
