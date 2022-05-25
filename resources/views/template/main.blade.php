@@ -12,6 +12,7 @@
         <strong>CHESS TOUR</strong>
     </div>
     <ul>
+        <li><a href="/report">Report</a></li>
         <li><a href="/time">Time Control</a></li>
         <li><a href="/category">Categories</a></li>
         <li><a href="/venue">Venues</a></li>

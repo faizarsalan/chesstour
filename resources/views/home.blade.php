@@ -1,6 +1,7 @@
 @extends('template.main')
 @section('content')
     <div class="homedisplay">
+
         <div class="bigdisplay">
             <div class="subdisplay">
                 <a href="/">Home</a>
@@ -15,6 +16,7 @@
                 <p>Find your favorite countries!</p>
             </div>
         </div>
+
         <div class="bigdisplay">
             <div class="subdisplay">
                 <a href="/time">Time Controls</a>
@@ -29,5 +31,13 @@
                 <p>A collection of your favourite venues!</p>
             </div>
         </div>
+
+        <div class="bigdisplay">
+            <div class="subdisplay">
+                <a href="/report">Report</a>
+                <p>Make a customizable report!</p>
+            </div>
+        </div>
+
     </div>
 @endsection

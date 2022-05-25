@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TourneyController;
 use App\Http\Controllers\TimeController;
 use App\Http\Controllers\VenueController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -90,4 +91,15 @@ Route::controller(CountryController::class)
         Route::post('/update/{id}', 'update');
         Route::post('/insert', 'insert');
     });
-// Route::get('country', [CountryController::class,'index']);
+
+    Route::controller(ReportController::class)
+    ->prefix('report')
+    ->as('report/')
+    ->group(function () {
+        Route::get('', 'index')->name('index');
+        Route::post('/query', 'query');
+        Route::get('/result', 'result');
+        Route::post('/remove/{id}', 'delete');
+        Route::post('/update/{id}', 'update');
+        Route::post('/insert', 'insert');
+    });
