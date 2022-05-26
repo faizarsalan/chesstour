@@ -45,11 +45,14 @@
                 <td></td>
                 <td>{{ $total }}</td>
             </tr>
+            <tr style="background: #f59e0b;">
+                <td>Rounded-Up Average Total Prize</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>{{ $rounduptotal }}</td>
+            </tr>
         </tbody>
     </table>
-
-
-    <a href="/country/add" class="act-btn">
-        +
-    </a>
 @endsection

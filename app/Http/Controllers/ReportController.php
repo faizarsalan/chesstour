@@ -35,7 +35,12 @@ class ReportController extends Controller
         foreach ($totalnum as $totalnumitem) {
             $num = $totalnumitem->num;
         }
-        return view('reportviewer',['data'=>$data, 'venue'=>$venue, 'countryname' => $country, 'total' => $grandtotal, 'number' => $num]);
+
+        $roundup = $report->average($request);
+        foreach ($roundup as $roundupvalue) {
+            $rounduptotal = $roundupvalue->roundupavg;
+        }
+        return view('reportviewer',['data'=>$data, 'venue'=>$venue, 'countryname' => $country, 'total' => $grandtotal, 'number' => $num,'rounduptotal'=>$rounduptotal]);
     }
 
     public function insert(Request $request){

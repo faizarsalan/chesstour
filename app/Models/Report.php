@@ -10,7 +10,7 @@ class Report extends Model
 {
     public function queryresult($request){
         $data = DB::select('SELECT
-        v.id_Venue AS venueid, t.id_Tournament AS tourneyid, t.name AS tourneyname, t.prize AS prize
+        v.id_Venue AS venueid, t.id_Tournament AS tourneyid, UPPER(t.name) AS tourneyname, t.prize AS prize
     FROM
         venues AS v LEFT JOIN countries AS c ON v.fk_Countryid_Country = c.id_Country LEFT JOIN tournaments as t ON v.id_Venue = t.fk_Venueid_Venue
     WHERE
@@ -25,7 +25,7 @@ class Report extends Model
 
     public function venue($request){
         $data = DB::select('SELECT
-        DISTINCT v.id_Venue,v.name
+        DISTINCT v.id_Venue,UPPER(v.name) AS name
     FROM
         venues AS v LEFT JOIN countries AS c ON v.fk_Countryid_Country = c.id_Country LEFT JOIN tournaments as t ON v.id_Venue = t.fk_Venueid_Venue
     WHERE
@@ -56,6 +56,18 @@ class Report extends Model
     public function total($request){
         $data = DB::select('SELECT
         SUM(t.prize) AS grandtotal
+    FROM
+        venues AS v LEFT JOIN countries AS c ON v.fk_Countryid_Country = c.id_Country LEFT JOIN tournaments as t ON v.id_Venue = t.fk_Venueid_Venue
+    WHERE
+        c.id_Country = :country AND
+        t.prize > :prize
+    ', ['country' => $request->country, 'prize' => $request->prize]);
+        return $data;
+    }
+
+    public function average($request){
+        $data = DB::select('SELECT
+        ROUND(AVG(t.prize), 0) AS roundupavg
     FROM
         venues AS v LEFT JOIN countries AS c ON v.fk_Countryid_Country = c.id_Country LEFT JOIN tournaments as t ON v.id_Venue = t.fk_Venueid_Venue
     WHERE
